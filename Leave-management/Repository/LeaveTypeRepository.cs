@@ -1,4 +1,5 @@
-﻿using Leave_management.Contracts;
+﻿using AutoMapper;
+using Leave_management.Contracts;
 using Leave_management.Data;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace Leave_management.Repository
 {
     
-    public class LeaveTypeRepository : ILeaveTypeRepository
+    public class LeaveTypeRepository : ILeaveTypeRespository
     {
 
         private readonly ApplicationDbContext _db;
@@ -43,6 +44,12 @@ namespace Leave_management.Repository
         public ICollection<LeaveType> GetEmployeesByLeaveType(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool isExists(int id)
+        {
+            var exists = _db.LeaveTypes.Any(q => q.Id == id);
+            return exists;
         }
 
         public bool Save()

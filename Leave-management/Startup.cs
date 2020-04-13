@@ -17,6 +17,8 @@ using Leave_management.Repository;
 using AutoMapper;
 using Leave_management.Mappings;
 
+
+
 namespace Leave_management
 {
     public class Startup
@@ -37,7 +39,8 @@ namespace Leave_management
             
             services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
             services.AddScoped<IleaveHistoryRepository, LeaveHistoryRepository>();
-            services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
+            services.AddScoped<ILeaveTypeRespository, LeaveTypeRepository>();
+            
 
             services.AddAutoMapper(typeof(Maps));
 
